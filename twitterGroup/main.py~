@@ -1,0 +1,36 @@
+import twitter
+import database
+
+import os
+import ConfigParser
+import threading
+
+class handleSending(threading.Thread):
+    sentBy = ""
+    sentTo = ""
+    message = ""
+    def run (self):
+        
+
+class controler:
+    account = 0
+    data = 0
+    def __init__(self, a, d):
+        self.account = a
+        self.data = d
+    def run (self):
+        
+
+
+def main ():
+    config = ConfigParser.SafeConfigParser()
+    config.read('config.cfg')
+    
+    Account = twitter.Api(username = config.get('user', 'name'), password = config.get('user', 'password'))
+    
+    data = database.db(config.get('file', 'database'))
+    
+    C = controler(Account, data)
+
+if __name__ == "__main__":
+    main()

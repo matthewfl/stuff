@@ -1,0 +1,9 @@
+import sqlite3
+
+class db:
+    _sql = 0
+    def __init__(self, name):
+        self._sql = sqlite3.connect(name)
+        self._checkInit()
+    def _checkInit(self):
+        _sql

@@ -1,0 +1,1 @@
+g++ -Wall main.cpp -o test

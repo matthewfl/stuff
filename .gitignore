@@ -1,0 +1,7 @@
+*.pyc
+.cxx*
+.bzr
+.bzr/
+*~
+*.database
+
