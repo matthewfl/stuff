@@ -1,6 +1,6 @@
 #!/bin/bash
 FOLDERS="/usr/class/cs143 /usr/class/cs143/sub*/pp2/mfranci1-2 /usr/class/cs143/sub*/pp3/mfranci1-4 /usr/class/cs143/sub* /usr/class/cs143/sub*/pp2 /usr/class/cs143/sub*/pp3 /usr/class/cs143/sub*/pp4 /usr/class/cs143/sub*/pp3check /usr/class/cs143/WWW /usr/class/cs143/WWW/handouts /usr/class/cs143/WWW/grades /usr/class/cs143/assi* /usr/class/cs106b/WWW/handouts /afs/ir.stanford.edu/users/m/f/mfranci1/public"
-EMAIL='3104833831@txt.att.net'
+EMAIL='number@txt.att.net'
 WORKIN='/tmp/mfranci1-script'
 CURRENTDIR=`pwd`
 BODY=''
