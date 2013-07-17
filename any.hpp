@@ -5,7 +5,7 @@
  * created to give greater control over the generic types
  * added features:
  *  able to delete generic types that are pointers without know what they are
- *  
+ *
  */
 
 #include <typeinfo>
@@ -28,14 +28,14 @@ namespace ilang {
       delete content;
     }
 
-    any & swap (any & rhs) 
+    any & swap (any & rhs)
     {
       placeHolder *tmp = content;
       content = rhs.content;
       rhs.content = tmp;
       return *this;
     }
-    
+
     any & operator=(any rhs) {
       rhs.swap(*this);
       return *this;
@@ -63,19 +63,19 @@ namespace ilang {
     const bool canCast () const {
       //return content ? content->canCast<T>() : false;
       if(content->type() == typeid(T)) return true;
-      if(isPointer()) {
+      //      if(isPointer()) {
 	//return dynamic_cast<T>(static_cast<holder<void*>* >(content)->held);
-      
+
 	return false;
-      }else{
+	//}else{
 	return dynamic_cast<holder<T>* >(content);
-      }
+	//      }
     }
 
-    
+
     template <typename T>
     T Cast () {
-      
+
     }
 
   private:
@@ -95,7 +95,7 @@ namespace ilang {
       // these are the same for both
       holder (const ValueType &value) :
 	held(value) {}
-      
+
       virtual const std::type_info &type() const {
 	return typeid(ValueType);
       }
@@ -106,7 +106,7 @@ namespace ilang {
       // these are different
       virtual const bool isPointer() const { return false; }
       virtual ~holder () {
-	
+
       }
       virtual void destroy () {
 	// not a pointer so not a problem
@@ -116,7 +116,7 @@ namespace ilang {
       ValueType held;
     };
 
-    
+
     template <typename ValueType>
     class holder<ValueType*> : public placeHolder {
     public:
@@ -130,7 +130,7 @@ namespace ilang {
       virtual placeHolder *clone() const {
 	return new holder(held);
       }
-      
+
       // these are different
       virtual const bool isPointer () const { return true; }
       virtual ~holder () {
